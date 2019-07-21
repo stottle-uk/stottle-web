@@ -1,26 +1,21 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import './App.scss';
+import Header from './layout/Header';
+import { Bem } from './shared/bem';
+
+const bem = new Bem('app-container');
 
 const App: React.FC = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <div className={bem.b()}>
+      <header className={bem.e('header')}>
+        <Header />
       </header>
+      <aside className={bem.e('aside')}>aside</aside>
+      <main className={bem.e('main')}>main</main>
+      <footer className={bem.e('footer')}>footer</footer>
     </div>
   );
-}
+};
 
 export default App;
