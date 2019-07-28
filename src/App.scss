@@ -14,49 +14,45 @@ $color4: rgba(166, 128, 140, 1);
 $color5: rgba(204, 183, 174, 1);
 
 .app-container {
-  display: flex;
-  flex-flow: column nowrap;
-  height: 100vh;
-  width: 100vw;
+  height: 100%;
+  width: 100%;
 
   // > * {
-  //   border: 1px solid #ccc;
+  //   border: 5px solid #444;
   // }
 
-  @include media('>tablet') {
-    flex-flow: row wrap;
-  }
-
   &__header,
-  &__footer,
-  &__aside,
-  &__main {
+  &__body,
+  &__footer {
     display: flex;
     align-items: center;
     justify-content: center;
+    width: 100%;
+  }
+
+  &__header,
+  &__body,
+  &__footer {
     padding: 0 15px;
   }
 
   &__header,
   &__footer {
-    flex: 7% 0;
+    height: 60px;
     background-color: $color1;
+  }
 
+  &__body {
+    flex-flow: column nowrap;
+    min-height: calc(100% - 120px);
     @include media('>tablet') {
-      flex: 1 auto;
-      height: 7vh;
-      width: 100%;
+      flex-flow: row wrap;
     }
   }
 
   &__aside,
   &__main {
-    flex: 1;
-
-    @include media('>tablet') {
-      flex: 50% auto;
-      min-height: 86vh;
-    }
+    flex: 50% 0;
   }
 }
 
@@ -66,6 +62,7 @@ $color5: rgba(204, 183, 174, 1);
   display: flex;
   align-items: center;
   justify-content: space-between;
+  color: #eee;
 
   &__menu-aside {
     height: 100%;
@@ -156,8 +153,8 @@ $color5: rgba(204, 183, 174, 1);
 }
 
 .app-slide-menu {
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   display: flex;
   position: absolute;
   top: 0;

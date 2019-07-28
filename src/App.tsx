@@ -6,13 +6,19 @@ import { Bem } from './shared/bem';
 const bem = new Bem('app-container');
 
 const App: React.FC = () => {
+  const items = Array.from({ length: 5 }, (v, i) => i).map(i => <div>{i}</div>);
+
   return (
     <div className={bem.b()}>
-      <header className={bem.e('header')}>
-        <Header />
-      </header>
-      <aside className={bem.e('aside')}>aside</aside>
-      <main className={bem.e('main')}>main</main>
+      <Header className={bem.e('header')} />
+      <main className={bem.e('body')}>
+        <aside className={bem.e('aside')}>
+          <div>{items}</div>
+        </aside>
+        <section className={bem.e('main')}>
+          <div>{items}</div>
+        </section>
+      </main>
       <footer className={bem.e('footer')}>footer</footer>
     </div>
   );
