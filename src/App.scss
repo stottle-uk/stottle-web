@@ -13,11 +13,11 @@ $color4: #98aaae;
 $color5: #dbd3c0;
 
 .container {
-  min-height: calc(100vh - 24px);
+  min-height: 100vh;
   width: 100%;
   display: flex;
   flex-flow: column nowrap;
-  margin-bottom: 24px;
+  padding-bottom: 24px;
 
   h1 {
     font-size: 48px;
@@ -65,24 +65,26 @@ $color5: #dbd3c0;
   &__content {
     width: 100%;
     flex: 1;
-    display: flex;
-    flex-flow: column nowrap;
-    justify-content: flex-start;
+  }
+}
 
-    @include media('>tablet') {
-      flex-flow: row wrap;
-      justify-content: space-evenly;
-    }
+.content {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+
+  @include media('>tablet') {
+    flex-flow: row wrap;
+    justify-content: space-evenly;
   }
 }
 
 .content-item {
   display: block;
   text-decoration: none;
-  width: 200px;
-  height: 200px;
+
   transform: translateY(0);
-  transition: transform 0.5s, opacity 1s;
+  transition: transform 0.3s, opacity 1s;
 
   &:hover {
     opacity: 1;
@@ -94,7 +96,14 @@ $color5: #dbd3c0;
   }
 
   &__body {
+    width: 150px;
+    height: 150px;
     margin: 0 auto;
+
+    @include media('>tablet') {
+      width: 200px;
+      height: 200px;
+    }
 
     > img {
       height: 100%;
