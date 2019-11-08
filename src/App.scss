@@ -6,173 +6,101 @@ $breakpoints: (
   desktop: 64em
 );
 
-/* RGB */
-$color1: rgba(86, 82, 100, 1);
-$color2: rgba(112, 102, 119, 1);
-$color3: rgba(255, 252, 232, 1);
-$color4: rgba(166, 128, 140, 1);
-$color5: rgba(204, 183, 174, 1);
+$color1: #272b2c;
+$color2: #5d544d;
+$color3: #6d747b;
+$color4: #98aaae;
+$color5: #dbd3c0;
 
-.app-container {
-  height: 100%;
+.container {
+  min-height: calc(100vh - 24px);
   width: 100%;
-
-  // > * {
-  //   border: 5px solid #444;
-  // }
-
-  &__header,
-  &__body,
-  &__footer {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-  }
-
-  &__header,
-  &__body,
-  &__footer {
-    padding: 0 15px;
-  }
-
-  &__header,
-  &__footer {
-    height: 60px;
-    background-color: $color1;
-  }
-
-  &__body {
-    flex-flow: column nowrap;
-    min-height: calc(100% - 120px);
-    @include media('>tablet') {
-      flex-flow: row wrap;
-    }
-  }
-
-  &__aside,
-  &__main {
-    flex: 50% 0;
-  }
-}
-
-.app-header {
-  width: 100%;
-  height: 100%;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  color: #eee;
-
-  &__menu-aside {
-    height: 100%;
-    flex: 40px 0;
-
-    .burger {
-      height: 40px;
-      display: block;
-      display: flex;
-      justify-content: space-evenly;
-      align-items: center;
-      flex-flow: column nowrap;
-
-      > span {
-        display: block;
-        width: 32px;
-        height: 3px;
-        position: relative;
-
-        background: #cdcdcd;
-        border-radius: 3px;
-      }
-    }
-  }
-
-  &__content {
-    margin: 0;
-    flex: 1;
-    display: flex;
-    justify-content: center;
-  }
-}
-
-.app-header-side {
-  width: 100%;
-  height: 100%;
   flex-flow: column nowrap;
-  display: flex;
-  z-index: 1;
+  margin-bottom: 24px;
 
-  &__header,
-  &__main {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    padding: 0 15px;
+  h1 {
+    font-size: 48px;
+    line-height: 62px;
+    color: $color1;
+  }
+
+  h2 {
+    font-size: 32px;
+    line-height: 48px;
+    color: $color3;
+  }
+
+  h3 {
+    color: $color1;
+    font-size: 24px;
+    line-height: 64px;
+  }
+
+  @include media('>tablet') {
+    h1 {
+      font-size: 96px;
+      line-height: 124px;
+    }
+
+    h2 {
+      font-size: 48px;
+      line-height: 62px;
+    }
   }
 
   &__header {
-    flex: 7% 0;
+    width: 100%;
+    height: 200px;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
 
-    > button {
-      height: 100%;
-      width: 40px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      position: relative;
-
-      .close {
-        width: 32px;
-        height: 32px;
-        &:hover {
-          opacity: 1;
-        }
-        &:before,
-        &:after {
-          position: absolute;
-          content: ' ';
-          height: 32px;
-          width: 2px;
-          background-color: #ddd;
-        }
-        &:before {
-          transform: rotate(45deg);
-        }
-        &:after {
-          transform: rotate(-45deg);
-        }
-      }
+    @include media('>tablet') {
+      flex: 1;
     }
   }
 
-  &__main {
+  &__content {
+    width: 100%;
     flex: 1;
-    align-items: flex-start;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+
+    @include media('>tablet') {
+      flex-flow: row wrap;
+      justify-content: space-evenly;
+    }
   }
 }
 
-.app-slide-menu {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  position: absolute;
-  top: 0;
-  left: 0;
-  transform: translateX(-100%);
-  transition: 0.3s;
-  color: #fff;
+.content-item {
+  display: block;
+  text-decoration: none;
+  width: 200px;
+  height: 200px;
+  transform: translateY(0);
+  transition: transform 0.5s, opacity 1s;
 
-  &--is-visible {
-    transform: translateX(0);
+  &:hover {
+    opacity: 1;
+    transform: translateY(-16px);
   }
 
-  &__content {
-    flex: 90% 0;
-    background-color: $color2;
+  &__header {
+    text-align: center;
   }
 
-  &__close {
-    flex: 1;
+  &__body {
+    margin: 0 auto;
+
+    > img {
+      height: 100%;
+      width: 100%;
+      display: block;
+      object-fit: contain;
+    }
   }
 }
