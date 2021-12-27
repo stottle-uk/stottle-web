@@ -1,3 +1,4 @@
+import { getAnalytics } from 'firebase/analytics';
 import { initializeApp } from 'firebase/app';
 import React from 'react';
 import ReactDOM from 'react-dom';
@@ -5,7 +6,7 @@ import App from './App';
 import './index.scss';
 import reportWebVitals from './reportWebVitals';
 
-initializeApp({
+const app = initializeApp({
   apiKey: 'AIzaSyDkMRYsylELwrZLWu4XlBMvvQeVpZMViV0',
   authDomain: 'stottle-web.firebaseapp.com',
   projectId: 'stottle-web',
@@ -14,6 +15,7 @@ initializeApp({
   appId: '1:814577459797:web:28dc22587c940e61c8eadc',
   measurementId: 'G-CSHBBRQ96C',
 });
+getAnalytics(app);
 
 ReactDOM.render(
   <React.StrictMode>
