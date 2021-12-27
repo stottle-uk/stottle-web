@@ -1,14 +1,14 @@
 import React from 'react';
 import styles from './Content.module.scss';
 
-interface ContentItem {
+interface Item {
   title: string;
   logo: string;
   link: string;
 }
 
 interface OwnProps {
-  item: ContentItem;
+  item: Item;
 }
 
 const ContentItem: React.FC<OwnProps> = ({ item }) => (
